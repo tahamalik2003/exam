@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang="en">
+<link rel="stylesheet" href="styles.css">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>MY APP</title>
+    </head>
+    <body style="background-color: #b6daef;">
+        <h1 style="color: rgb(94, 65, 151); font-size: 24px;" >May Node and Express be with you.</h1>
+        <form action="/quotes" method="POST" style="background-color: #d4c5df; padding: 10px; border: 1px solid #d4c5df;">
+            <input type="text" placeholder="name" name="name" style="margin-bottom: 10px;">
+            <input type="text" placeholder="quote" name="quote" style="margin-bottom: 10px;">
+            <button type="submit" style="background-color: #c667c5; color: rgb(255, 255, 255); padding: 5px 10px; border: none; cursor: pointer;">Submit</button>
+          </form>
+        <h2 style="color: rgb(94, 65, 151); font-size: 24px;" >Quotes</h2>
+        <ul class="quotes" style="border: 2px solid rgb(97, 96, 193); padding: 10px; border-radius: 10px; background-color: #f7f7f7; font-family: 'Arial', sans-serif;">
+            <!-- Loop through quotes -->
+            <% for(var i = 0; i < quotes.length; i++) { %>
+              <li class="quote" style="margin-bottom: 10px; list-style-type: none;">
+                <!-- Output name from the iterated quote object -->
+                <span style="font-weight: bold;"><%= quotes[i].name %></span>:
+                <!-- Output quote from the iterated quote object -->
+                <span style="font-style: italic;"><%= quotes[i].quote %></span>
+              </li>
+            <% } %>
+          </ul>
+        <div>
+            <h2 style="color: darkred;">Darth Vader invades!</h2>
+            <p style="font-style: italic;">Replace first Yoda's quote with a quote written by Darth Vader</p>
+            <button id="update-button" style="background-color: black; color: white; padding: 8px 16px; border: none; border-radius: 4px;">Replace Yoda's quote</button>
+          </div>
+          <div>
+            <h2 style="color: darkgreen;">Remove Darth Vader!</h2>
+            <p style="font-style: italic;">
+              Delete one Darth Vader's quote. Does nothing if there are no more Darth
+              Vader's quote
+            </p>
+            <button id="delete-button" style="background-color: rgb(54, 68, 56); color: white; padding: 8px 16px; border: none; border-radius: 4px;">Delete Darth Vader's quote</button>
+          </div>
+          <div id="message"></div>
+        <script src="/main.js"></script>
+    </body>
+</html>
+
